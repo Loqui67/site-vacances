@@ -1,9 +1,11 @@
 import CarouselComponent from "./CarouselComponent";
+import NavBarComponent from "./NavBarComponent";
 
 function App() {
   return (
     <div className="App">
-      <CarouselComponent />
+      <NavBarComponent/>
+      <CarouselComponent/>
     </div>
   );
 }
