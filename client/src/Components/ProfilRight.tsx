@@ -1,5 +1,11 @@
+import ProfilRightTabsComponent from "./ProfilRightTabsComponent";
+
 function ProfilRight() {
-    return <div>ProfilRight</div>;
+    return (
+        <div>
+            <ProfilRightTabsComponent></ProfilRightTabsComponent>
+        </div>
+    );
 }
 
 export default ProfilRight;
