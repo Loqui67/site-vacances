@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import CarouselComponent from "./CarouselComponent";
 import NavBarComponent from "./NavBarComponent";
-import ProfilPage from "./ProfilPage";
+import ProfilPage from "./Profil/ProfilPage";
 
 function App() {
     return (
