@@ -1,0 +1,34 @@
+.r-hex {
+    overflow: hidden;
+    display: inline-block;
+    margin: 2em 0;
+    width: 10em; height: 8.66em;
+    transform: rotate(-30deg) skewX(30deg);
+    border-radius: 15px;
+  }
+  .r-hex *, .r-hex *:before {
+    display: block;
+    overflow: hidden;
+    width: inherit; height: inherit;
+    border-radius: inherit;
+  }
+  .r-hex-inner {
+    transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+    transition: opacity .75s;
+    cursor: pointer;
+  }
+  .r-hex:first-child .r-hex-inner:before, .r-hex-inner-2 {
+    transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+    content: '';
+    position:absolute;
+  }
+  .r-hex-inner-2:before {
+    margin-top: -0.75em;
+    height: 10em;
+    transform: skewX(-30deg) rotate(-90deg);
+    background: url("../../Pictures/girlpanda.jpg");
+    background-size: cover;
+    line-height: 20em;
+    text-align: center;
+    content: '';
+  }
