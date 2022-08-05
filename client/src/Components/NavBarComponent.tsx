@@ -29,15 +29,6 @@ function NavBarComponent() {
                         </NavDropdown>
                         <Nav.Link href="#">Statistiques</Nav.Link>
                     </Nav>
-                    <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
                     <Nav.Link href="/profil">
                         <img
                             src={require("C:/Users/laure/OneDrive/Documents/Site_vacance/site_git/site-vacances/client/src/Pictures/icon_profil_femme_60.jpg")}

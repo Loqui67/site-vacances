@@ -1,65 +1,111 @@
+import { Form, Row, Col, Container } from "react-bootstrap";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 import { useState } from "react";
-import RangeSlider from "react-bootstrap-range-slider";
-import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import "../Styles/styles.css";
-import {
-    BlockTitle,
-    List,
-    ListItem,
-    ListItemCell,
-    Icon,
-    Range,
-    Block,
-} from "framework7-react";
+
 function ProfilTabsOptionsVilla() {
-    const [value, setValue] = useState(200);
+    const [value, setValue] = useState<any>(200);
+    const [isChecked, setIsChecked] = useState(false);
 
     return (
-        //<Form>
-        //    <Form.Group>
-        //        <Form.Label>Price</Form.Label>
-        //        <RangeSlider
-        //            value={value}
-        //            onChange={(e) => setValue(parseInt(e.target.value))}
-        //            tooltipPlacement="top"
-        //            tooltip="on"
-        //            min={50}
-        //            max={1000}
-        //            variant="info"
-        //            tooltipLabel={(currentValue) => `${currentValue}€`}
-        //        />
-        //    </Form.Group>
-        //</Form>
         <>
-            <BlockTitle>Brightness</BlockTitle>
-            <List simpleList>
-                <ListItem>
-                    <ListItemCell className="width-auto flex-shrink-0">
-                        <Icon
-                            ios="f7:circle"
-                            aurora="f7:circle"
-                            md="material:brightness_low"
-                        ></Icon>
-                    </ListItemCell>
-                    <ListItemCell className="flex-shrink-3">
-                        <Range
-                            min={0}
-                            max={100}
-                            step={1}
-                            value={50}
-                            label={true}
-                            color="orange"
-                        ></Range>
-                    </ListItemCell>
-                    <ListItemCell className="width-auto flex-shrink-0">
-                        <Icon
-                            ios="f7:circle_half"
-                            aurora="f7:circle_half"
-                            md="material:brightness_high"
-                        ></Icon>
-                    </ListItemCell>
-                </ListItem>
-            </List>
+            <Form>
+                <Container>
+                    <Row className="rowInfoPerso optionsVilla">
+                        <Form.Label className="sliderBarLabelProfil">
+                            Prix maximum par personne pour la villa
+                        </Form.Label>
+                        <Col sm="auto">
+                            <label className="sliderBarMin">50</label>
+                        </Col>
+                        <Col>
+                            <Slider
+                                className="sliderBarProfil"
+                                min={50}
+                                max={1000}
+                                value={value}
+                                onChange={setValue}
+                            />
+                        </Col>
+                        <Col sm="auto">
+                            <label className="sliderBarMax">1000</label>
+                        </Col>
+                        <Col sm={2}>
+                            <h4 className="sliderBarValue">{value}€ max</h4>
+                        </Col>
+                    </Row>
+                    <Row className="rowInfoPerso optionsVilla">
+                        <Col>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={`climatisation-checkbox`}
+                                label={`Climatisation`}
+                            />
+                        </Col>
+                        <Col>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={`television-checkbox`}
+                                label={`Télévision`}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="rowInfoPerso optionsVilla">
+                        <Col>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={`jacuzzi-checkbox`}
+                                label={`Jacuzzi`}
+                            />
+                        </Col>
+                        <Col>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={`barbecue-checkbox`}
+                                label={`Barbecue`}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="rowInfoPerso optionsVilla">
+                        <Col>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={`salleSport-checkbox`}
+                                label={`Salle de sport`}
+                            />
+                        </Col>
+                        <Col>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={`autres-checkbox`}
+                                label={`Autres`}
+                                checked={isChecked}
+                                onChange={() => setIsChecked(!isChecked)}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="rowInfoPerso optionsVilla">
+                        <Col className="othersOptionsVilla">
+                            {isChecked && (
+                                <Form.Group controlId="formGroupFirstName">
+                                    <Form.Control placeholder="Autres ..." />
+                                </Form.Group>
+                            )}
+                        </Col>
+                    </Row>
+                    <Row className="rowInfoPerso buttonOptionsVilla">
+                        <Button
+                            variant="primary"
+                            type="submit"
+                            className="buttonSubmitInfoPerso"
+                        >
+                            Submit
+                        </Button>
+                    </Row>
+                </Container>
+            </Form>
         </>
     );
 }

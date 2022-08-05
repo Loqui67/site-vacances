@@ -124,4 +124,50 @@
   height: 235px;
   top: -15px;
   position: relative;
+}
+
+.sliderBarMin, .sliderBarMax {
+  position: relative;
+  top: -3px;
+}
+
+.sliderBarProfil {
+  height: 5px !important;
+}
+
+.sliderBarValue {
+  position: relative;
+  top: -7px;
+}
+
+.othersOptionsVilla {
+  position: absolute;
+  width: 97% !important;
+}
+
+.sliderBarLabelProfil {
+  margin-bottom: 20px !important;
+}
+
+.optionsVilla {
+  padding-bottom: 30px;
+}
+
+.rc-slider-rail, .rc-slider-track, .rc-slider-step {
+  height: 10px !important;
+}
+
+.rc-slider-track {
+  background-color: #73a9f4 !important;
+}
+
+.rc-slider-handle {
+  width: 20px !important;
+  height: 20px !important;
+  border: solid 2px #73a9f4 !important;
+}
+
+.rc-slider-handle:hover, .rc-slider-handle-dragging {
+  border-color: #5193ef !important;
+  box-shadow: 0 0 0 5px #5193ef !important;
 }/*# sourceMappingURL=styles.css.map */
