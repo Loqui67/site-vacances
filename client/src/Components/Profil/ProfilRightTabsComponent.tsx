@@ -3,7 +3,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import ProfilTabsInfoPerso from "./ProfilTabsInfoPerso";
 import ProfilTabsOptionsVilla from "./ProfilTabsOptionsVilla";
-import "./Styles/styles.css";
+import "../Styles/styles.css";
 
 function ProfilRightTabsComponent() {
     const [key, setKey] = useState("informationsPerso");
