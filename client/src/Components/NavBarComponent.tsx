@@ -38,9 +38,9 @@ function NavBarComponent() {
                         />
                         <Button variant="outline-success">Search</Button>
                     </Form>
-                    <Nav.Link href="#1">
+                    <Nav.Link href="/profil">
                         <img
-                            src={require("C:\\Users\\loicw\\OneDrive\\Documents\\site vacances\\site-vacances\\client\\src\\Pictures\\icon_profil_femme_60.jpg")}
+                            src={require("C:/Users/laure/OneDrive/Documents/Site_vacance/site_git/site-vacances/client/src/Pictures/icon_profil_femme_60.jpg")}
                             alt="Profil"
                         />
                     </Nav.Link>
