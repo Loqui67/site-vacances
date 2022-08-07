@@ -55,7 +55,7 @@ function ProfilLeft() {
                         type="submit"
                         className="buttonSubmitProfil"
                     >
-                        Submit
+                        Modifier
                     </Button>
                 </Row>
             </Container>

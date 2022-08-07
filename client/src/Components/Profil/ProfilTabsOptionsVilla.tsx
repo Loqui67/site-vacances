@@ -101,7 +101,7 @@ function ProfilTabsOptionsVilla() {
                             type="submit"
                             className="buttonSubmitInfoPerso"
                         >
-                            Submit
+                            Modifier
                         </Button>
                     </Row>
                 </Container>
