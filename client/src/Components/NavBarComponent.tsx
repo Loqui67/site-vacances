@@ -1,6 +1,4 @@
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -31,7 +29,7 @@ function NavBarComponent() {
                     </Nav>
                     <Nav.Link href="/profil">
                         <img
-                            src={require("C:/Users/laure/OneDrive/Documents/Site_vacance/site_git/site-vacances/client/src/Pictures/icon_profil_femme_60.jpg")}
+                            src={require("./../Pictures/icon_profil_femme_60.jpg")}
                             alt="Profil"
                         />
                     </Nav.Link>

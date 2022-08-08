@@ -6,14 +6,48 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./Styles/styles.css";
+import Checkbox from "./Checkbox";
+
+interface IUser {
+    name: string;
+    firstName: string;
+    email: string;
+    phoneNumber: string;
+    paypalLink: string;
+    budget: number;
+    options: {
+        climatisation: boolean;
+        television: boolean;
+        jaccuzzi: boolean;
+        barbecue: boolean;
+        piscine: boolean;
+        others?: {};
+    };
+}
 
 function ModalComponent() {
     const [show, setShow] = useState(true);
-    const [value, setValue] = useState<any>(300);
+    const [value, setValue] = useState<number | Array<number>>(300);
     const [isChecked, setIsChecked] = useState(false);
     const [validated, setValidated] = useState(false);
+    const [user, setUser] = useState<IUser>({
+        name: "",
+        firstName: "",
+        email: "",
+        phoneNumber: "",
+        paypalLink: "",
+        budget: 300,
+        options: {
+            climatisation: false,
+            television: false,
+            jaccuzzi: false,
+            barbecue: false,
+            piscine: false,
+        },
+    });
 
     const handleSubmit = (event: any) => {
+        console.log("coucou");
         const form = event.currentTarget;
         let validity = true;
         if (form.checkValidity() === false) {
@@ -26,8 +60,30 @@ function ModalComponent() {
         return validity;
     };
 
+    const handleSliderChange = (value: number | Array<number>) => {
+        if (value instanceof Array) value = value[0];
+        setValue(value);
+        setUser({ ...user, budget: value });
+    };
+
+    const handleCheckboxChange = (event: any) => {
+        const { name, checked } = event.target;
+        setUser({ ...user, options: { ...user.options, [name]: checked } });
+    };
+
+    const handleChange = (event: any) => {
+        const { name, value } = event.target;
+        setUser({ ...user, [name]: value });
+    };
+
+    console.log(user.options);
     return (
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            className="front"
+        >
             <Modal
                 show={show}
                 size="xl"
@@ -55,7 +111,7 @@ function ModalComponent() {
                                     controlId="validationCustomName"
                                 >
                                     <Form.Label>Nom</Form.Label>
-                                    <InputGroup className="mb-3">
+                                    <InputGroup hasValidation className="mb-3">
                                         <InputGroup.Text id="basic-addon3">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +126,8 @@ function ModalComponent() {
                                             placeholder="Depp"
                                             autoFocus
                                             required
+                                            name="name"
+                                            onChange={handleChange}
                                         />{" "}
                                         <Form.Control.Feedback>
                                             Looks good!
@@ -83,7 +141,7 @@ function ModalComponent() {
                                     controlId="validationCustomSurname"
                                 >
                                     <Form.Label>Prénom</Form.Label>
-                                    <InputGroup className="mb-3">
+                                    <InputGroup hasValidation className="mb-3">
                                         <InputGroup.Text id="basic-addon3">
                                             <svg
                                                 width="24"
@@ -99,6 +157,8 @@ function ModalComponent() {
                                             placeholder="Johny"
                                             autoFocus
                                             required
+                                            name="firstName"
+                                            onChange={handleChange}
                                         />{" "}
                                         <Form.Control.Feedback>
                                             Looks good!
@@ -112,7 +172,7 @@ function ModalComponent() {
                                     controlId="validationCustomEmail"
                                 >
                                     <Form.Label>Email address</Form.Label>
-                                    <InputGroup className="mb-3">
+                                    <InputGroup hasValidation className="mb-3">
                                         <InputGroup.Text id="basic-addon3">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -129,6 +189,8 @@ function ModalComponent() {
                                             autoFocus
                                             pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
                                             required
+                                            name="email"
+                                            onChange={handleChange}
                                         />{" "}
                                         <Form.Control.Feedback type="invalid">
                                             Entrez une adresse email valide.
@@ -144,7 +206,7 @@ function ModalComponent() {
                                     controlId="exampleForm.ControlInput1"
                                 >
                                     <Form.Label>Numéro de téléphone</Form.Label>
-                                    <InputGroup className="mb-3">
+                                    <InputGroup hasValidation className="mb-3">
                                         <InputGroup.Text id="basic-addon3">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +223,8 @@ function ModalComponent() {
                                             autoFocus
                                             pattern="(0|\+33)[1-9]( *[0-9]{2}){4}"
                                             required
+                                            name="phoneNumber"
+                                            onChange={handleChange}
                                         />{" "}
                                         <Form.Control.Feedback type="invalid">
                                             Entrez un numéro de téléphone
@@ -175,7 +239,7 @@ function ModalComponent() {
                                     controlId="exampleForm.ControlInput1"
                                 >
                                     <Form.Label>Paypal</Form.Label>
-                                    <InputGroup className="mb-3">
+                                    <InputGroup hasValidation className="mb-3">
                                         <InputGroup.Text id="basic-addon3">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -191,6 +255,8 @@ function ModalComponent() {
                                             placeholder="https://paypal.me/example"
                                             autoFocus
                                             required
+                                            name="paypalLink"
+                                            onChange={handleChange}
                                         />{" "}
                                         <Form.Control.Feedback type="invalid">
                                             Entrez un paypal.me valide.
@@ -218,7 +284,7 @@ function ModalComponent() {
                                     min={50}
                                     max={1000}
                                     value={value}
-                                    onChange={setValue}
+                                    onChange={handleSliderChange}
                                 />
                             </Col>
                             <Col sm="auto">
@@ -229,43 +295,33 @@ function ModalComponent() {
                             </Col>
                         </Row>
                         <Row className="rowInfoPerso optionsVilla">
-                            <Col>
-                                <Form.Check
-                                    type={"checkbox"}
-                                    id={`climatisation-checkbox`}
-                                    label={`Climatisation`}
-                                />
-                            </Col>
-                            <Col>
-                                <Form.Check
-                                    type={"checkbox"}
-                                    id={`television-checkbox`}
-                                    label={`Télévision`}
-                                />
-                            </Col>
-                            <Col>
-                                <Form.Check
-                                    type={"checkbox"}
-                                    id={`jacuzzi-checkbox`}
-                                    label={`Jacuzzi`}
-                                />
-                            </Col>
+                            <Checkbox
+                                label="Climatisation"
+                                name="climatisation"
+                                OnChange={handleCheckboxChange}
+                            />
+                            <Checkbox
+                                label="Télévision"
+                                name="television"
+                                OnChange={handleCheckboxChange}
+                            />
+                            <Checkbox
+                                label="Jacuzzi"
+                                name="jacuzzi"
+                                OnChange={handleCheckboxChange}
+                            />
                         </Row>
                         <Row className="rowInfoPerso optionsVilla">
-                            <Col>
-                                <Form.Check
-                                    type={"checkbox"}
-                                    id={`barbecue-checkbox`}
-                                    label={`Barbecue`}
-                                />
-                            </Col>
-                            <Col>
-                                <Form.Check
-                                    type={"checkbox"}
-                                    id={`salleSport-checkbox`}
-                                    label={`Salle de sport`}
-                                />
-                            </Col>
+                            <Checkbox
+                                label="Barbecue"
+                                name="barbecue"
+                                OnChange={handleCheckboxChange}
+                            />
+                            <Checkbox
+                                label={"Piscine"}
+                                name="piscine"
+                                OnChange={handleCheckboxChange}
+                            />
                             <Col>
                                 <Form.Check
                                     type={"checkbox"}
@@ -291,9 +347,7 @@ function ModalComponent() {
                     <Button
                         type="submit"
                         variant="primary"
-                        onClick={(e) =>
-                            validated && handleSubmit(e) && setShow(false)
-                        }
+                        onClick={() => setShow(false)}
                     >
                         Suivant
                     </Button>

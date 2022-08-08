@@ -12,10 +12,11 @@ function App() {
             <NavBarComponent />
             <Routes>
                 <Route path="*" element={<Page404 />} />
-                <Route path="/" element={<CarouselComponent />} />
+                <Route path="/" element={<CarouselComponent />}>
+                    <Route path="modal" element={<ModalComponent />} />
+                </Route>
                 <Route path="/profil" element={<ProfilPage />} />
                 <Route path="/login" element={<LoginComponent />} />
-                <Route path="/modal" element={<ModalComponent />} />
             </Routes>
         </div>
     );

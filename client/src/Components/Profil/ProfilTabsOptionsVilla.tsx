@@ -72,8 +72,8 @@ function ProfilTabsOptionsVilla() {
                         <Col>
                             <Form.Check
                                 type={"checkbox"}
-                                id={`salleSport-checkbox`}
-                                label={`Salle de sport`}
+                                id={`piscine-checkbox`}
+                                label={`Piscine`}
                             />
                         </Col>
                         <Col>
