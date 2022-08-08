@@ -1,4 +1,4 @@
-import "./Styles/styles.css";
+import "./Styles/stylesConnexion.css";
 import { useState } from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 
@@ -7,7 +7,7 @@ function LoginComponent({ setToken }: any) {
     const [password, setPassword] = useState<any>();
 
     return (
-        <>
+        <div className="backgroundConnexion">
             <Form>
                 <Container className="login-box">
                     <h3>Page de connexion</h3>
@@ -36,7 +36,7 @@ function LoginComponent({ setToken }: any) {
                     </Row>
                 </Container>
             </Form>
-        </>
+        </div>
     );
 }
 
