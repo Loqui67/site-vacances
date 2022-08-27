@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Form, Row, Col, Container } from "react-bootstrap";
@@ -49,18 +49,17 @@ function ModalComponent() {
     const handleSubmit = (event: any) => {
         console.log("coucou");
         const form = event.currentTarget;
-        let validity = true;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-            validity = false;
         }
 
         setValidated(true);
-        if (validity) {
-            setShow(false);
-        }
     };
+
+    useEffect(() => {
+        console.log(validated);
+    }, [validated]);
 
     const handleSliderChange = (value: number | Array<number>) => {
         if (value instanceof Array) value = value[0];
@@ -80,25 +79,25 @@ function ModalComponent() {
 
     console.log(user.options);
     return (
-        <Form
-            noValidate
-            validated={validated}
-            onSubmit={handleSubmit}
-            className="front"
+        <Modal
+            show={show}
+            size="xl"
+            onHide={() => setShow(true)}
+            dialogClassName="modal-90w"
+            aria-labelledby="example-custom-modal-styling-title"
+            centered
         >
-            <Modal
-                show={show}
-                size="xl"
-                onHide={() => setShow(true)}
-                dialogClassName="modal-90w"
-                aria-labelledby="example-custom-modal-styling-title"
-                centered
+            <Modal.Header>
+                <Modal.Title id="example-custom-modal-styling-title">
+                    Informations nécessaires
+                </Modal.Title>
+            </Modal.Header>
+            <Form
+                noValidate
+                validated={validated}
+                onSubmit={handleSubmit}
+                className="front"
             >
-                <Modal.Header>
-                    <Modal.Title id="example-custom-modal-styling-title">
-                        Informations nécessaires
-                    </Modal.Title>
-                </Modal.Header>
                 <Modal.Body>
                     <Container>
                         <Row>
@@ -261,7 +260,7 @@ function ModalComponent() {
                                             onChange={handleChange}
                                         />{" "}
                                         <Form.Control.Feedback type="invalid">
-                                            Entrez un paypal.me valide.
+                                            Entrez un lien paypal.me valide.
                                         </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>
@@ -293,7 +292,7 @@ function ModalComponent() {
                                 <label className="sliderBarMax">1000</label>
                             </Col>
                             <Col sm={2}>
-                                <h4 className="sliderBarValue">{value}€ max</h4>
+                                <h4 className="sliderBarValue">{`${value}€ max`}</h4>
                             </Col>
                         </Row>
                         <Row className="rowInfoPerso optionsVilla">
@@ -346,16 +345,12 @@ function ModalComponent() {
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button
-                        type="submit"
-                        variant="primary"
-                        onClick={handleSubmit}
-                    >
+                    <Button type="submit" variant="primary">
                         Suivant
                     </Button>
                 </Modal.Footer>
-            </Modal>
-        </Form>
+            </Form>
+        </Modal>
     );
 }
 
