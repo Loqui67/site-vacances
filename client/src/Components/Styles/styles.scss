@@ -77,8 +77,21 @@
     text-align: left;
 }
 
+html {
+    height: 100%;
+  }
+  body{
+    margin:0;
+    background: ghostwhite !important;
+    padding:0;
+    height: 100% !important;
+  }
+
 .backgroundColorProfil{
-    background-color: ghostwhite;
+    height: 100%;
+    background: ghostwhite !important;
+    margin:0;
+    padding:0;
 }
 
 .tabs{
@@ -95,7 +108,7 @@
     margin-left: auto;
 }
 
-.rowInfoPerso{
+.rowInfoPerso, .rowConnexion{
     padding: 10px;
     text-align: left;
 }
@@ -123,4 +136,117 @@
     height: 235px;
     top: -15px;
     position: relative;
+}
+
+.sliderBarMin, .sliderBarMax{
+    position: relative;
+    top: -3px;
+}
+
+.sliderBarProfil{
+    height: 5px !important;
+}
+
+.sliderBarValue{
+    position: relative;
+    top: -7px;
+}
+
+.othersOptionsVilla{
+    position: absolute;
+    width: 97% !important;
+}
+
+.othersOptionsConnexion{
+    position: absolute;
+    bottom: 25px;
+    width: 96% !important;
+}
+
+.sliderBarLabelProfil{
+    margin-bottom: 20px !important;
+    font-size: 1.1rem;
+    color: #00000072;
+}
+
+.optionsVilla{
+    padding-bottom: 30px;
+}
+
+.rc-slider-rail, .rc-slider-track, .rc-slider-step{
+    height: 10px !important;
+}
+
+.rc-slider-track{
+    background-color: #73a9f4 !important;
+}
+
+.rc-slider-handle{
+    width: 20px !important;
+    height: 20px !important;
+    border: solid 2px #73a9f4 !important;
+}
+
+.rc-slider-handle:hover, .rc-slider-handle-dragging{
+    border-color: #5193ef !important;
+    box-shadow: 0 0 0 5px #5193ef !important;
+}
+
+.titreModal{
+    font-size: 1.3rem;
+    color: #00000088;
+}
+
+.addVillaTabsCss{
+    border: solid 1px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 10;
+    position: relative;
+    border-color: #c3c3c3;
+    padding-left: 0px !important; 
+    padding-right: 0px !important;
+}
+
+.addVilla{
+    margin-top: 45px !important;
+}
+
+.textarea{
+    resize:none;
+}
+
+.rowInfoVilla{
+    text-align: left;
+}
+
+.containerInfoVilla{
+    margin-bottom: 5px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+
+.pictureVilla{
+    padding-top: 50px !important;
+    padding-right: 20px !important;
+}
+
+.labelAddVilla{
+    font-size: 1.1rem;
+    color: #00000072;
+}
+
+.othersOptionsVillaCheckbox{
+    margin-bottom: 7px;
+}
+
+.othersOptionsVillaInput{
+    top: -5px;
+    position: relative;
+}
+
+.optionsAddVilla{
+    padding-bottom: 15px;
 }

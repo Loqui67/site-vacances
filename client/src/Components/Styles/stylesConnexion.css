@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(#9cd6ff, #d2f2fb) !important;
+  height: 100%;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  vertical-align: middle;
+  left: 50%;
+  width: 700px !important;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.662);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.login-box h3 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 15px;
+  color: #5d83e9;
+  font-size: 12px;
+}
+
+.btnConnexion {
+  top: 30px;
+}/*# sourceMappingURL=stylesConnexion.css.map */
