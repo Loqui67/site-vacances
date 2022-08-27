@@ -18,7 +18,7 @@ function NavBarComponent() {
                         <Nav.Link href="#action1">Les Villas</Nav.Link>
                         <Nav.Link href="#action2">Activités</Nav.Link>
                         <NavDropdown title="Ajout" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">
+                            <NavDropdown.Item href="/addVilla">
                                 Ajouter une villa
                             </NavDropdown.Item>
                             <NavDropdown.Item href="#action4">

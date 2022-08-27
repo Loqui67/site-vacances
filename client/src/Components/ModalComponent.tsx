@@ -57,7 +57,9 @@ function ModalComponent() {
         }
 
         setValidated(true);
-        return validity;
+        if (validity) {
+            setShow(false);
+        }
     };
 
     const handleSliderChange = (value: number | Array<number>) => {
@@ -129,8 +131,8 @@ function ModalComponent() {
                                             name="name"
                                             onChange={handleChange}
                                         />{" "}
-                                        <Form.Control.Feedback>
-                                            Looks good!
+                                        <Form.Control.Feedback type="invalid">
+                                            Entrez un nom valide.
                                         </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>
@@ -160,8 +162,8 @@ function ModalComponent() {
                                             name="firstName"
                                             onChange={handleChange}
                                         />{" "}
-                                        <Form.Control.Feedback>
-                                            Looks good!
+                                        <Form.Control.Feedback type="invalid">
+                                            Entrez un prénom valide.
                                         </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>
@@ -347,7 +349,7 @@ function ModalComponent() {
                     <Button
                         type="submit"
                         variant="primary"
-                        onClick={() => setShow(false)}
+                        onClick={handleSubmit}
                     >
                         Suivant
                     </Button>

@@ -196,3 +196,57 @@ html {
     font-size: 1.3rem;
     color: #00000088;
 }
+
+.addVillaTabsCss{
+    border: solid 1px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 10;
+    position: relative;
+    border-color: #c3c3c3;
+    padding-left: 0px !important; 
+    padding-right: 0px !important;
+}
+
+.addVilla{
+    margin-top: 45px !important;
+}
+
+.textarea{
+    resize:none;
+}
+
+.rowInfoVilla{
+    text-align: left;
+}
+
+.containerInfoVilla{
+    margin-bottom: 5px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+
+.pictureVilla{
+    padding-top: 50px !important;
+    padding-right: 20px !important;
+}
+
+.labelAddVilla{
+    font-size: 1.1rem;
+    color: #00000072;
+}
+
+.othersOptionsVillaCheckbox{
+    margin-bottom: 7px;
+}
+
+.othersOptionsVillaInput{
+    top: -5px;
+    position: relative;
+}
+
+.optionsAddVilla{
+    padding-bottom: 15px;
+}
