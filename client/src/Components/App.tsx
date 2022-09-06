@@ -6,6 +6,7 @@ import Page404 from "./Page404";
 import LoginComponent from "./LoginComponent";
 import ModalComponent from "./ModalComponent";
 import AddVillaComponent from "./AddVilla/AddVillaComponent";
+import FindVilla from "./FindVilla";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/profil" element={<ProfilPage />} />
                 <Route path="/login" element={<LoginComponent />} />
                 <Route path="/addVilla" element={<AddVillaComponent />} />
+                <Route path="/villa" element={<FindVilla />} />
             </Routes>
         </div>
     );

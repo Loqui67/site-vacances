@@ -14,7 +14,7 @@ function ProfilPage() {
                     <Col sm={3} className="profilCss">
                         <ProfilLeft></ProfilLeft>
                     </Col>
-                    <Col className="profilCss">
+                    <Col sm="auto" className="profilCss">
                         <ProfilRight></ProfilRight>
                     </Col>
                 </Row>

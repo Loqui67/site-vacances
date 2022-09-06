@@ -212,7 +212,7 @@ body {
   padding-right: 0px !important;
 }
 
-.addVilla {
+.addVilla, .villa {
   margin-top: 45px !important;
 }
 
@@ -251,4 +251,56 @@ body {
 
 .optionsAddVilla {
   padding-bottom: 15px;
+}
+
+.sliderBarVilla {
+  height: 5px !important;
+}
+
+.sliderBarVillaValue {
+  position: relative;
+  top: -2px;
+  font-size: 1rem !important;
+}
+
+.searchVilla {
+  border: solid 1px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 10;
+  position: relative;
+  border-color: #c3c3c3;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.searchFilterVilla {
+  margin: 10px !important;
+}
+
+.labelSearchVilla {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.4470588235);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.peopleNumber {
+  position: relative;
+  top: -6px;
+}
+
+.right-center {
+  text-align: end;
+  font-style: italic;
+  color: rgba(41, 41, 41, 0.4470588235);
 }/*# sourceMappingURL=styles.css.map */

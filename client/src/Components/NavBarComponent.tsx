@@ -15,7 +15,7 @@ function NavBarComponent() {
                         style={{ maxHeight: "100px" }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Les Villas</Nav.Link>
+                        <Nav.Link href="/villa">Les Villas</Nav.Link>
                         <Nav.Link href="#action2">Activités</Nav.Link>
                         <NavDropdown title="Ajout" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/addVilla">
