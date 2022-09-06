@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Form, Row, Col, Container } from "react-bootstrap";
@@ -7,6 +7,8 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./Styles/styles.css";
 import Checkbox from "./Checkbox";
+import Utils from "../Classes/Utils";
+import { DatabaseCall } from "../Classes/DatabaseCall";
 
 interface IUser {
     name: string;
@@ -17,18 +19,17 @@ interface IUser {
     budget: number;
     options: {
         climatisation: boolean;
-        television: boolean;
+        beach: boolean;
         jaccuzzi: boolean;
         barbecue: boolean;
         piscine: boolean;
-        others?: {};
+        city: boolean;
     };
 }
 
 function ModalComponent() {
     const [show, setShow] = useState(true);
     const [value, setValue] = useState<number | Array<number>>(300);
-    const [isChecked, setIsChecked] = useState(false);
     const [validated, setValidated] = useState(false);
     const [user, setUser] = useState<IUser>({
         name: "",
@@ -39,12 +40,20 @@ function ModalComponent() {
         budget: 300,
         options: {
             climatisation: false,
-            television: false,
+            beach: false,
             jaccuzzi: false,
             barbecue: false,
             piscine: false,
+            city: false,
         },
     });
+
+    const utils = useMemo(() => new Utils(), []);
+    const dbCall = useMemo(() => new DatabaseCall(), []);
+
+    const updateUser = async () => {
+        await dbCall.updateUser(user, "PetiteSouris67");
+    };
 
     const handleSubmit = (event: any) => {
         console.log("coucou");
@@ -52,14 +61,13 @@ function ModalComponent() {
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
+        } else {
+            updateUser().then(() => {
+                utils.redirectTo("http://localhost:3000/");
+            });
         }
-
         setValidated(true);
     };
-
-    useEffect(() => {
-        console.log(validated);
-    }, [validated]);
 
     const handleSliderChange = (value: number | Array<number>) => {
         if (value instanceof Array) value = value[0];
@@ -77,7 +85,6 @@ function ModalComponent() {
         setUser({ ...user, [name]: value });
     };
 
-    console.log(user.options);
     return (
         <Modal
             show={show}
@@ -148,8 +155,8 @@ function ModalComponent() {
                                                 width="24"
                                                 height="24"
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
                                             >
                                                 <path d="M24 22h-24v-20h24v20zm-1-19h-22v18h22v-18zm-4 13v1h-4v-1h4zm-6.002 1h-10.997l-.001-.914c-.004-1.05-.007-2.136 1.711-2.533.789-.182 1.753-.404 1.892-.709.048-.108-.04-.301-.098-.407-1.103-2.036-1.305-3.838-.567-5.078.514-.863 1.448-1.359 2.562-1.359 1.105 0 2.033.488 2.545 1.339.737 1.224.542 3.033-.548 5.095-.057.106-.144.301-.095.41.14.305 1.118.531 1.83.696 1.779.41 1.773 1.503 1.767 2.56l-.001.9zm-9.998-1h8.999c.003-1.014-.055-1.27-.936-1.473-1.171-.27-2.226-.514-2.57-1.267-.174-.381-.134-.816.119-1.294.921-1.739 1.125-3.199.576-4.111-.332-.551-.931-.855-1.688-.855-.764 0-1.369.31-1.703.871-.542.91-.328 2.401.587 4.09.259.476.303.912.13 1.295-.342.757-1.387.997-2.493 1.252-.966.222-1.022.478-1.021 1.492zm18-3v1h-6v-1h6zm0-3v1h-6v-1h6zm0-3v1h-6v-1h6z" />
                                             </svg>
@@ -302,8 +309,8 @@ function ModalComponent() {
                                 OnChange={handleCheckboxChange}
                             />
                             <Checkbox
-                                label="Télévision"
-                                name="television"
+                                label="Plage"
+                                name="beach"
                                 OnChange={handleCheckboxChange}
                             />
                             <Checkbox
@@ -323,24 +330,11 @@ function ModalComponent() {
                                 name="piscine"
                                 OnChange={handleCheckboxChange}
                             />
-                            <Col>
-                                <Form.Check
-                                    type={"checkbox"}
-                                    id={`autres-checkbox`}
-                                    label={`Autres`}
-                                    checked={isChecked}
-                                    onChange={() => setIsChecked(!isChecked)}
-                                />
-                            </Col>
-                        </Row>
-                        <Row className="rowInfoPerso optionsVilla">
-                            <Col className="othersOptionsConnexion">
-                                {isChecked && (
-                                    <Form.Group controlId="formGroupFirstName">
-                                        <Form.Control placeholder="Autres ..." />
-                                    </Form.Group>
-                                )}
-                            </Col>
+                            <Checkbox
+                                label={"Proximité d'une ville"}
+                                name="city"
+                                OnChange={handleCheckboxChange}
+                            />
                         </Row>
                     </Container>
                 </Modal.Body>

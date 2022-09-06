@@ -4,7 +4,7 @@ getPageUrl(): string {
     return window.location.href;
 }
 
-redirect(url: string): void {
+redirectTo(url: string): void {
     window.location.href = url;
 }
 
