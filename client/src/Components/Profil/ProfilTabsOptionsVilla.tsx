@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import "../Styles/styles.css";
 
 function ProfilTabsOptionsVilla() {
-    const [value, setValue] = useState<any>(200);
+    const [value, setValue] = useState<any>(400);
     const [isChecked, setIsChecked] = useState(false);
 
     return (
@@ -32,7 +32,7 @@ function ProfilTabsOptionsVilla() {
                         <Col sm="auto">
                             <label className="sliderBarMax">1000</label>
                         </Col>
-                        <Col sm={2}>
+                        <Col sm={1}>
                             <h4 className="sliderBarValue">{value}€ max</h4>
                         </Col>
                     </Row>

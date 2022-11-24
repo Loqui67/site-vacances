@@ -29,7 +29,7 @@ function NavBarComponent() {
                     </Nav>
                     <Nav.Link href="/profil">
                         <img
-                            src={require("./../Pictures/icon_profil_femme_60.jpg")}
+                            src={require("./../Pictures/icon_profil_homme_60.jpg")}
                             alt="Profil"
                         />
                     </Nav.Link>
