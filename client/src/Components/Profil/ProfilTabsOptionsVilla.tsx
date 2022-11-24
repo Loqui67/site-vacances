@@ -18,19 +18,19 @@ function ProfilTabsOptionsVilla() {
                             Prix maximum par personne pour la villa
                         </Form.Label>
                         <Col sm="auto">
-                            <label className="sliderBarMin">50</label>
+                            <label className="sliderBarMin">200</label>
                         </Col>
                         <Col>
                             <Slider
                                 className="sliderBarProfil"
-                                min={50}
-                                max={1000}
+                                min={200}
+                                max={600}
                                 value={value}
                                 onChange={setValue}
                             />
                         </Col>
                         <Col sm="auto">
-                            <label className="sliderBarMax">1000</label>
+                            <label className="sliderBarMax">600</label>
                         </Col>
                         <Col sm={2}>
                             <h4 className="sliderBarValue">{value}€ max</h4>

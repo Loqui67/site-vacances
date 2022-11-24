@@ -30,7 +30,7 @@ function ProfilTabsInfoPerso() {
                 </Col>
                 <Col className="colonneInfoPerso">
                     <Form.Group controlId="formGroupPhone">
-                        <Form.Label>Téléphone</Form.Label>
+                        <Form.Label>Phone Number</Form.Label>
                         <Form.Control type="tel" placeholder="Phone number" />
                     </Form.Group>
                 </Col>
@@ -44,10 +44,10 @@ function ProfilTabsInfoPerso() {
                 </Col>
                 <Col className="colonneInfoPerso">
                     <Form.Group controlId="formGroupConfirmedPassword">
-                        <Form.Label>Confirmed Password</Form.Label>
+                        <Form.Label>Confirme Password</Form.Label>
                         <Form.Control
                             type="password"
-                            placeholder="Confirmed password"
+                            placeholder="Confirme password"
                         />
                     </Form.Group>
                 </Col>
